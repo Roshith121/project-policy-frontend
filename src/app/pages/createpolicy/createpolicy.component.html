@@ -1,0 +1,71 @@
+<h1 class="heading">Policy Administration System</h1>
+
+<div class="row">
+  <div class="col-md"></div>
+
+  <div class="col-md-5" style="background-color: #182b99">
+    <mat-card>
+      <div>
+        <h2>Create Consumer Policy</h2>
+      </div>
+
+      <form
+        #consumerPolicyForm="ngForm"
+        (ngSubmit)="createPolicy(consumerPolicy)"
+      >
+        <!-- <div *ngIf="alert" class="alert alert-danger" role="alert">
+          {{ msg.message }}
+        </div> -->
+
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Consumer Id </mat-label>
+            <input
+              name="cid"
+              #cid="ngModel"
+              [(ngModel)]="consumerPolicy.consumerid"
+              matInput
+              placeholder="Consumer Id"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="cid.invalid && cid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Accepted Quotes</mat-label>
+            <input
+              name="acceptedquotes"
+              #acceptedquotes="ngModel"
+              [(ngModel)]="consumerPolicy.acceptedquote"
+              matInput
+              placeholder="Accepted Quotes"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="acceptedquotes.invalid && acceptedquotes.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+
+        <div *ngIf="alert" class="alert alert-primary" role="alert">
+          {{ msg }}
+        </div>
+
+        <div class="create-button">
+          <button type="submit" mat-raised-button color="primary">
+            Submit
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <div class="col-md"></div>
+</div>

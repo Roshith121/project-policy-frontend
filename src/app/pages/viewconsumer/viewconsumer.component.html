@@ -1,0 +1,51 @@
+<h1 class="heading">Policy Administration System</h1>
+
+<div class="row">
+  <div class="col-md"></div>
+
+  <div class="col-md-5" style="background-color: #182b99">
+    <mat-card>
+      <div>
+        <h2>View Consumer Business Details</h2>
+      </div>
+
+      <form #consumerForm="ngForm">
+        <!-- {{ consumer | json }} -->
+        <!-- <div *ngIf="alert" class="alert alert-danger" role="alert">
+          <!-- {{msg}} -->
+        <!-- </div> -->
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Consumer Id </mat-label>
+            <input
+              name="cid"
+              #cid="ngModel"
+              [(ngModel)]="consumer.id"
+              matInput
+              placeholder="Consumer Id"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="cid.invalid && cid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <div class="create-button">
+          <button
+            type="submit"
+            (click)="getConsumer(consumer.id)"
+            mat-raised-button
+            color="primary"
+          >
+            View
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <div class="col-md"></div>
+</div>

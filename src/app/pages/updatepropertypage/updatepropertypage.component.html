@@ -1,0 +1,282 @@
+<h1 class="heading">Policy Administration System</h1>
+
+<div class="row">
+  <div class="col-md"></div>
+
+  <div class="col-md-5" style="background-color: #182b99">
+    <mat-card>
+      <div>
+        <h2>Business Property Details</h2>
+      </div>
+
+      <form
+        #propertyForm="ngForm"
+        (ngSubmit)="doUpdateBusinessProperty(property)"
+      >
+        <div
+          *ngIf="alert && msg.status == 500"
+          class="alert alert-danger"
+          role="alert"
+        >
+          {{ msg.message }}
+        </div>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Business Id</mat-label>
+            <input
+              name="businessid"
+              #businessid="ngModel"
+              [(ngModel)]="property.businessId"
+              matInput
+              placeholder="Business Id"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="businessid.invalid && businessid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width" required>
+            <mat-label>Consumer Id</mat-label>
+            <input
+              name="cosumerid"
+              #consumerid="ngModel"
+              [(ngModel)]="property.consumerId"
+              matInput
+              placeholder="Consumer Id"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="consumerid.invalid && consumerid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Insurance Type</mat-label>
+            <!-- <input
+              name="insurance"
+              #insurance="ngModel"
+              [(ngModel)]="property.insurancetype"
+              matInput
+              placeholder="Insurance Type"
+              required
+            /> -->
+            <select
+              name="insurance"
+              #insurance="ngModel"
+              [(ngModel)]="property.insurancetype"
+              matNativeControl
+              required
+            >
+              <option value="Pay Back">Pay Back</option>
+              <option value="Fire">Fire</option>
+              <option value="Replacement">Replacement</option>
+              <option value="Burglary">Burglary</option>
+              <option value="All Risks">All Risks</option>
+              <option value="Natural Disaster">Natural Disaster</option>
+            </select>
+            <mat-hint
+              class="text-danger"
+              *ngIf="insurance.invalid && insurance.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Property Type</mat-label>
+            <!-- <input
+              name="propertytype"
+              #propertytype="ngModel"
+              [(ngModel)]="property.propertytype"
+              matInput
+              placeholder="Property Type"
+              required
+            /> -->
+            <select
+              name="propertytype"
+              #propertytype="ngModel"
+              [(ngModel)]="property.propertytype"
+              matNativeControl
+              required
+            >
+              <option value="Building">Building</option>
+              <option value="Factory Euqipment">Factory Euqipment</option>
+              <option value="Property in Transit">Property in Transit</option>
+            </select>
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="propertytype.invalid && propertytype.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Building sqft</mat-label>
+            <input
+              name="buildingsqft"
+              #buildingsqft="ngModel"
+              [(ngModel)]="property.buildingsqft"
+              matInput
+              placeholder="Building sqft"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="buildingsqft.invalid && buildingsqft.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Building Storeys</mat-label>
+            <input
+              name="buildingstoreys"
+              #buildingstoreys="ngModel"
+              [(ngModel)]="property.buildingstoreys"
+              matInput
+              placeholder="Building Storeys"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="buildingstoreys.invalid && buildingstoreys.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Building Type</mat-label>
+            <!-- <input
+              name="buildingtype"
+              #buildingtype="ngModel"
+              [(ngModel)]="property.buildingtype"
+              matInput
+              placeholder="Building Type"
+              required
+            /> -->
+            <select
+              name="buildingtype"
+              #buildingtype="ngModel"
+              [(ngModel)]="property.buildingtype"
+              matNativeControl
+              required
+            >
+              <option value="Owner">Owner</option>
+              <option value="Rented">Rented</option>
+            </select>
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="buildingtype.invalid && buildingtype.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Building age</mat-label>
+            <input
+              name="buildingage"
+              #buildingage="ngModel"
+              [(ngModel)]="property.buildingage"
+              matInput
+              placeholder="Building age"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="buildingage.invalid && buildingage.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Cost of the Asset</mat-label>
+            <input
+              name="costoftheasset"
+              #costoftheasset="ngModel"
+              [(ngModel)]="property.costoftheasset"
+              matInput
+              placeholder="Cost of the Asset"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="costoftheasset.invalid && costoftheasset.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Salvage Value</mat-label>
+            <input
+              name="salvagevalue"
+              #salvagevalue="ngModel"
+              [(ngModel)]="property.salvagevalue"
+              matInput
+              placeholder="Salvage Value"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="salvagevalue.invalid && salvagevalue.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Useful Life Of the Asset</mat-label>
+            <input
+              name="usefullifeoftheAsset"
+              #usefullifeoftheAsset="ngModel"
+              [(ngModel)]="property.usefullifeoftheAsset"
+              matInput
+              placeholder="Useful Life Of the Asset"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="
+                usefullifeoftheAsset.invalid && usefullifeoftheAsset.touched
+              "
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <div class="create-button">
+          <button type="submit" mat-raised-button color="primary">
+            Submit
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <div class="col-md"></div>
+</div>

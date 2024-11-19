@@ -1,0 +1,62 @@
+<h1>Consumer Business Details</h1>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div
+        *ngIf="alert && msg.status == 500"
+        class="alert alert-danger"
+        role="alert"
+      >
+        {{ msg.message }}
+      </div>
+      <table class="table" *ngIf="tableview">
+        <tr>
+          <th>Business Id :</th>
+          <td>{{ property.businessId }}</td>
+        </tr>
+        <tr>
+          <th>Consumer Id :</th>
+          <td>{{ property.consumerId }}</td>
+        </tr>
+        <tr>
+          <th>Insurance Type :</th>
+          <td>{{ property.insurancetype }}</td>
+        </tr>
+        <tr>
+          <th>Property Type :</th>
+          <td>{{ property.propertytype }}</td>
+        </tr>
+        <tr>
+          <th>Building Sqft :</th>
+          <td>{{ property.buildingsqft }}</td>
+        </tr>
+        <tr>
+          <th>Building Type :</th>
+          <td>{{ property.buildingtype }}</td>
+        </tr>
+        <tr>
+          <th>Building Storeys :</th>
+          <td>{{ property.buildingstoreys }}</td>
+        </tr>
+        <tr>
+          <th>Building Age :</th>
+          <td>{{ property.buildingage }}</td>
+        </tr>
+        <tr>
+          <th>Cost of the Asset :</th>
+          <td>{{ property.costoftheasset }}</td>
+        </tr>
+        <tr>
+          <th>Salvage value :</th>
+          <td>{{ property.salvagevalue }}</td>
+        </tr>
+        <tr>
+          <th>Useful Life of the Asset :</th>
+          <td>{{ property.usefullifeoftheAsset }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

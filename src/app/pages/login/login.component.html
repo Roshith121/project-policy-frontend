@@ -1,0 +1,39 @@
+<h1 class="heading">Policy Administration System</h1>
+<div class="row">
+    <div class="col-md-6 self-align-start">
+        <img src="../../../assets/login-image.png" alt="image">
+    </div>
+    <div class="col-md-4 offset-md-2 align-self-center login">
+        <mat-card>
+        <h1>Login Here</h1>
+        <div *ngIf="alert" class="alert alert-danger" role="alert">
+            {{msg}}
+          </div>
+        <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+           <!-- {{loginData | json}} -->
+            <mat-form-field appearance="fill" class="full-width">
+           
+                <mat-label>Username</mat-label>
+                <input type="text" matInput [(ngModel)]="user.username" name="username" class="input" placeholder="Username" required #username="ngModel">
+                <mat-hint class="text-danger" *ngIf="username.invalid && username.touched">Please enter valid username</mat-hint>
+                
+                
+            </mat-form-field>
+            
+    
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" [(ngModel)]="user.password" name="password" class="input" matInput placeholder="Password" required #password="ngModel">
+                <mat-hint class="text-danger" *ngIf="password.invalid && password.touched">Please enter valid password</mat-hint>
+               
+            </mat-form-field>
+            
+                <div class="login-button">
+                    <button [disabled]="loginForm.form.invalid" type="submit" mat-raised-button color="primary">Login</button>
+                </div>
+        
+           
+        </form>
+    </mat-card>
+    </div>
+<div>

@@ -1,0 +1,121 @@
+<h1 class="heading">Policy Administration System</h1>
+
+<div class="row">
+  <div class="col-md"></div>
+
+  <div class="col-md-5" style="background-color: #182b99">
+    <mat-card>
+      <div>
+        <h2>Issue Consumer Policy</h2>
+      </div>
+
+      <form
+        #consumerPolicyForm="ngForm"
+        (ngSubmit)="issuePolicy(consumerPolicy)"
+      >
+        <!-- {{ consumer | json }} -->
+        <!-- <div *ngIf="alert" class="alert alert-danger" role="alert">
+          <!-- {{msg}} -->
+        <!-- </div> -->
+
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Policy Id :</mat-label>
+            <input
+              name="policyid"
+              #policyid="ngModel"
+              [(ngModel)]="consumerPolicy.pid"
+              matInput
+              placeholder="Policy Id"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="policyid.invalid && policyid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Consumer Id :</mat-label>
+            <input
+              name="cid"
+              #cid="ngModel"
+              [(ngModel)]="consumerPolicy.consumerid"
+              matInput
+              placeholder="Consumer Id"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="cid.invalid && cid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Business Id :</mat-label>
+            <input
+              name="bid"
+              #bid="ngModel"
+              [(ngModel)]="consumerPolicy.businessid"
+              matInput
+              placeholder="Business Id"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="bid.invalid && bid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Payment details :</mat-label>
+            <input
+              name="paymentdetails"
+              #paymentdetails="ngModel"
+              [(ngModel)]="consumerPolicy.paymentdetails"
+              matInput
+              placeholder="Payment details "
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="paymentdetails.invalid && paymentdetails.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Acceptance Status :</mat-label>
+            <input
+              name="acceptancestatus"
+              #acceptancestatus="ngModel"
+              [(ngModel)]="consumerPolicy.acceptancestatus"
+              matInput
+              placeholder="Acceptance Status"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="acceptancestatus.invalid && acceptancestatus.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+
+        <div class="create-button">
+          <button type="submit" mat-raised-button color="primary">Issue</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <div class="col-md"></div>
+</div>

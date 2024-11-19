@@ -1,0 +1,90 @@
+<h1>View Policy Details</h1>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div
+        *ngIf="alert && msg.status == 500"
+        class="alert alert-danger"
+        role="alert"
+      >
+        {{ msg.message }}
+      </div>
+      <table class="table" *ngIf="tableview">
+        <tr>
+          <th>Consumer Id :</th>
+          <td>{{ consumerpolicy.consumerid }}</td>
+        </tr>
+        <tr>
+          <th>Policy Id :</th>
+          <td>{{ consumerpolicy.policyid }}</td>
+        </tr>
+        <tr>
+          <th>Property Type:</th>
+          <td>{{ consumerpolicy.property_type }}</td>
+        </tr>
+        <tr>
+          <th>Consumer Type :</th>
+          <td>{{ consumerpolicy.consumer_type }}</td>
+        </tr>
+        <tr>
+          <th>Assured sum :</th>
+          <td>{{ consumerpolicy.assured_sum }}</td>
+        </tr>
+        <tr>
+          <th>Tenure :</th>
+          <td>{{ consumerpolicy.tenure }}</td>
+        </tr>
+        <tr>
+          <th>Business Value :</th>
+          <td>{{ consumerpolicy.business_value }}</td>
+        </tr>
+        <tr>
+          <th>Property Value :</th>
+          <td>{{ consumerpolicy.property_value }}</td>
+        </tr>
+        <tr>
+          <th>Base Location</th>
+          <td>{{ consumerpolicy.base_location }}</td>
+        </tr>
+        <tr>
+          <th>Insurance Type :</th>
+          <td>{{ consumerpolicy.type }}</td>
+        </tr>
+        <tr>
+          <th>Business Id :</th>
+          <td>{{ consumerpolicy.businessid }}</td>
+        </tr>
+        <tr>
+          <th>Payment Details:</th>
+          <td>{{ consumerpolicy.paymentdetails }}</td>
+        </tr>
+        <tr>
+          <th>Acceptance Status :</th>
+          <td>{{ consumerpolicy.acceptancestatus }}</td>
+        </tr>
+        <tr>
+          <th>Policy Status :</th>
+          <td>{{ consumerpolicy.policystatus }}</td>
+        </tr>
+        <tr>
+          <th>Effective Date :</th>
+          <td>{{ consumerpolicy.effectivedate }}</td>
+        </tr>
+        <tr>
+          <th>Covered Sum :</th>
+          <td>{{ consumerpolicy.covered_sum }}</td>
+        </tr>
+        <tr>
+          <th>Duration :</th>
+          <td>{{ consumerpolicy.duration }}</td>
+        </tr>
+        <tr>
+          <th>Accepted Quote :</th>
+          <td>{{ consumerpolicy.acceptedquote }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>policy</mat-icon>
+  </button>
+  <span>Insureity Portal</span>
+  <span class="example-spacer"></span>
+  <button
+    routerLink="/"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    Home
+  </button>
+  <button
+    *ngIf="loggedIn()"
+    routerLink="/homepage"
+    style="margin-left: 20px"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    Menu
+    <!-- <mat-icon>favorite</mat-icon> -->
+  </button>
+  <button
+    *ngIf="!loggedIn()"
+    routerLink="/login"
+    style="margin-left: 20px"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    Login
+  </button>
+  <button
+    *ngIf="!loggedIn()"
+    routerLink="/register"
+    style="margin-left: 20px"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    Register
+  </button>
+  <button
+    *ngIf="loggedIn()"
+    style="margin-left: 20px"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    (click)="onLogout()"
+  >
+    Logout
+  </button>
+  <div>
+    <button
+      *ngIf="loggedIn()"
+      style="margin-left: 20px"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+  <span style="font-size: 1rem">{{ username }}</span>
+</mat-toolbar>

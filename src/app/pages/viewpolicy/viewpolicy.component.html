@@ -1,0 +1,75 @@
+<h1 class="heading">Policy Administration System</h1>
+
+<div class="row">
+  <div class="col-md"></div>
+
+  <div class="col-md-5" style="background-color: #182b99">
+    <mat-card>
+      <div>
+        <h2>View Consumer Policy</h2>
+      </div>
+
+      <form #consumerPolicyForm="ngForm">
+        <!-- {{ consumer | json }} -->
+        <!-- <div *ngIf="alert" class="alert alert-danger" role="alert">
+          <!-- {{msg}} -->
+        <!-- </div> -->
+
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Consumer Id </mat-label>
+            <input
+              name="cid"
+              #cid="ngModel"
+              [(ngModel)]="consumerPolicy.consumerid"
+              matInput
+              placeholder="Consumer Id"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="cid.invalid && cid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Policy Id</mat-label>
+            <input
+              name="policyid"
+              #policyid="ngModel"
+              [(ngModel)]="consumerPolicy.policyid"
+              matInput
+              placeholder="Policy Id"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="policyid.invalid && policyid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+
+        <div class="create-button">
+          <button
+            (click)="
+              viewConsumerPolicyPage(
+                consumerPolicy.policyid,
+                consumerPolicy.consumerid
+              )
+            "
+            type="submit"
+            mat-raised-button
+            color="primary"
+          >
+            View
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <div class="col-md"></div>
+</div>

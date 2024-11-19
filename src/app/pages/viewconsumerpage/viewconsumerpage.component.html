@@ -1,0 +1,94 @@
+<h1>Consumer Business Details</h1>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div
+        *ngIf="alert && msg.status == 500"
+        class="alert alert-danger"
+        role="alert"
+      >
+        {{ msg.message }}
+      </div>
+      <table class="table" *ngIf="tableview">
+        <tr>
+          <th>First Name :</th>
+          <td>{{ consumer.firstname }}</td>
+        </tr>
+        <tr>
+          <th>Last Name :</th>
+          <td>{{ consumer.lastname }}</td>
+        </tr>
+        <tr>
+          <th>Date of Birth :</th>
+          <td>{{ consumer.dob }}</td>
+        </tr>
+        <tr>
+          <th>Business Name :</th>
+          <td>{{ consumer.businessname }}</td>
+        </tr>
+        <tr>
+          <th>Pan Details :</th>
+          <td>{{ consumer.pandetails }}</td>
+        </tr>
+        <tr>
+          <th>Email :</th>
+          <td>{{ consumer.email }}</td>
+        </tr>
+        <tr>
+          <th>Phone :</th>
+          <td>{{ consumer.phone }}</td>
+        </tr>
+        <tr>
+          <th>Website :</th>
+          <td>{{ consumer.website }}</td>
+        </tr>
+        <tr>
+          <th>Business Overview:</th>
+          <td>{{ consumer.businessoverview }}</td>
+        </tr>
+        <tr>
+          <th>Validity of Consumer :</th>
+          <td>{{ consumer.validity }}</td>
+        </tr>
+        <tr>
+          <th>Agent Name :</th>
+          <td>{{ consumer.agentname }}</td>
+        </tr>
+        <tr>
+          <th>Agent Id :</th>
+          <td>{{ consumer.agentid }}</td>
+        </tr>
+        <tr>
+          <th>Business Id:</th>
+          <td>{{ consumer.businessid }}</td>
+        </tr>
+        <tr>
+          <th>Business Category:</th>
+          <td>{{ consumer.businesscategory }}</td>
+        </tr>
+        <tr>
+          <th>Business Type:</th>
+          <td>{{ consumer.businesstype }}</td>
+        </tr>
+        <tr>
+          <th>Business Turnover :</th>
+          <td>{{ consumer.businessturnover }}</td>
+        </tr>
+        <tr>
+          <th>Capital Invested:</th>
+          <td>{{ consumer.capitalinvested }}</td>
+        </tr>
+        <tr>
+          <th>Total Employees:</th>
+          <td>{{ consumer.totalemployees }}</td>
+        </tr>
+        <tr>
+          <th>Business Age:</th>
+          <td>{{ consumer.businessage }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

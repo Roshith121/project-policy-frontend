@@ -1,0 +1,13 @@
+.heading {
+  text-align: center;
+  margin: 20px;
+  font-size: 40px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  margin-right: 2px;
+}

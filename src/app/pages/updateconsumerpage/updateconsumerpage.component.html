@@ -1,0 +1,412 @@
+<h1 class="heading">Policy Administration System</h1>
+
+<div class="row">
+  <div class="col-md"></div>
+
+  <div class="col-md-5" style="background-color: #182b99">
+    <mat-card>
+      <div>
+        <h2>Consumer Business Details</h2>
+      </div>
+
+      <form #updateconsumer="ngForm" (ngSubmit)="doUpdateConsumer()">
+        <!-- {{ consumer | json }} -->
+        <div
+          *ngIf="alert && msg.status == 500"
+          class="alert alert-danger"
+          role="alert"
+        >
+          {{ msg.message }}
+        </div>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>First Name</mat-label>
+            <input
+              name="fname"
+              #fname="ngModel"
+              [(ngModel)]="consumer.firstname"
+              matInput
+              placeholder="First Name"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="fname.invalid && fname.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width" required>
+            <mat-label>Last Name</mat-label>
+            <input
+              name="lname"
+              #lname="ngModel"
+              [(ngModel)]="consumer.lastname"
+              matInput
+              placeholder="Last Name"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="lname.invalid && lname.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Date of Birth</mat-label>
+            <input
+              name="dob"
+              #dob="ngModel"
+              [(ngModel)]="consumer.dob"
+              matInput
+              placeholder="Date of birth"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="dob.invalid && dob.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>PAN Details</mat-label>
+            <input
+              name="pan"
+              #pan="ngModel"
+              [(ngModel)]="consumer.pandetails"
+              matInput
+              placeholder="PAN Details"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="pan.invalid && pan.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Phone</mat-label>
+            <input
+              pattern="[7896][0-9]{9}"
+              name="phone"
+              #phone="ngModel"
+              [(ngModel)]="consumer.phone"
+              matInput
+              placeholder="Phone"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="phone.invalid && phone.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Email</mat-label>
+            <input
+              name="email"
+              #email="ngModel"
+              [(ngModel)]="consumer.email"
+              matInput
+              placeholder="Email"
+              required
+            />
+
+            <mat-hint class="text-danger" *ngIf="email.invalid && email.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Business Name</mat-label>
+            <input
+              name="businessname"
+              #businessname="ngModel"
+              [(ngModel)]="consumer.businessname"
+              matInput
+              placeholder="Business Name"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="businessname.invalid && businessname.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Business Overview</mat-label>
+            <input
+              name="businessoverview"
+              #businessoverview="ngModel"
+              [(ngModel)]="consumer.businessoverview"
+              matInput
+              placeholder="Business Overview"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="businessoverview.invalid && businessoverview.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </p>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Validity</mat-label>
+            <input
+              name="validity"
+              #validity="ngModel"
+              [(ngModel)]="consumer.validity"
+              matInput
+              placeholder="Validity"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="validity.invalid && validity.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Website</mat-label>
+            <input
+              name="website"
+              #website="ngModel"
+              [(ngModel)]="consumer.website"
+              matInput
+              placeholder="Website"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="website.invalid && website.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Agent Name</mat-label>
+            <input
+              name="agentname"
+              #agentname="ngModel"
+              [(ngModel)]="consumer.agentname"
+              matInput
+              placeholder="Agent Name"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="agentname.invalid && agentname.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Agent Id</mat-label>
+            <input
+              name="agentid"
+              #agentid="ngModel"
+              [(ngModel)]="consumer.agentid"
+              matInput
+              placeholder="Agent Id"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="agentid.invalid && agentid.touched"
+              >Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Business Category</mat-label>
+
+            <select
+              name="businesscategory"
+              #businesscategory="ngModel"
+              [(ngModel)]="consumer.businesscategory"
+              placeholder="Business Category"
+              matNativeControl
+              required
+            >
+              <option>--Select--</option>
+              <option value="Retailer">Retailer</option>
+              <option value="Health Practitioner">Health Practitioner</option>
+              <option value="Distributor">Distributor</option>
+              <option value="Food Service">Food Service</option>
+              <option value="Supplier">Supplier</option>
+              <option value="Manufacturer">Manufacturer</option>
+              <option value="Business Services">Business Services</option>
+              <option value="Investor">Investor</option>
+            </select>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Business Type</mat-label>
+            <select
+              name="businesstype"
+              #businesstype="ngModel"
+              [(ngModel)]="consumer.businesstype"
+              placeholder="Business Type"
+              matNativeControl
+              required
+            >
+              <option selected>--select--</option>
+              <option value="E-tailer">E-tailer</option>
+              <option value="Independent Grocer">Independent Grocer</option>
+              <option value="Home and Textile">Home and Textile</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="Mass Merchandiser">Mass Merchandiser</option>
+              <option value="Medical Professional">Medical Professional</option>
+              <option value="Health Club">Health Club</option>
+              <option value="Wholesaler of Finished Products">
+                Wholesaler of Finished Products
+              </option>
+              <option value="Full Service Restaurant">
+                Full Service Restaurant
+              </option>
+              <option value="Corporate Dining">Corporate Dining</option>
+              <option value="Coffee House">Coffee House</option>
+              <option value="Private Chef">Private Chef</option>
+              <option value="Equipment Supplier">Equipment Supplier</option>
+              <option value="Ingredient Importer">Ingredient Importer</option>
+              <option value="Food">Food</option>
+              <option value="Pharmaceuticals">Pharmaceuticals</option>
+              <option value="Cosmetics">Cosmetics</option>
+              <option value="Beverage">Beverage</option>
+              <option value="Pet Products">Pet Products</option>
+              <option value="Consultant">Consultant</option>
+              <option value="Government Agency">Government Agency</option>
+              <option value="Publisher">Publisher</option>
+              <option value="Financial Institution">
+                Financial Institution
+              </option>
+              <option value="Private Equity Fund">Private Equity Fund</option>
+              <option value="Corporate Investor">Corporate Investor</option>
+              <option value="Hedge Fund">Hedge Fund</option>
+            </select>
+
+            <!-- <mat-hint
+              class="text-danger"
+              *ngIf="businesscategory.invalid && businesscategory.touched"
+              >Please enter valid input</mat-hint
+            > -->
+          </mat-form-field>
+        </p>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Business Turnover</mat-label>
+            <input
+              name="businessturnover"
+              #businessturnover="ngModel"
+              [(ngModel)]="consumer.businessturnover"
+              matInput
+              placeholder="Business Turnover"
+              required
+            />
+            <mat-hint
+              class="text-danger"
+              *ngIf="businessturnover.invalid && businessturnover.touched"
+            >
+              Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Capital Invested</mat-label>
+            <input
+              name="capitalinvested"
+              #capitalinvested="ngModel"
+              [(ngModel)]="consumer.capitalinvested"
+              matInput
+              placeholder="Capital Invested"
+              required
+            />
+
+            <mat-hint
+              class="text-danger"
+              *ngIf="capitalinvested.invalid && capitalinvested.touched"
+            >
+              Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Total Employees</mat-label>
+            <input
+              name="totalemployees"
+              #totalemployees="ngModel"
+              [(ngModel)]="consumer.totalemployees"
+              matInput
+              placeholder="Total Employees"
+              required
+            />
+            <mat-hint
+              class="text-danger"
+              *ngIf="totalemployees.invalid && totalemployees.touched"
+            >
+              Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+        <span>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Business Age</mat-label>
+            <input
+              name="businessage"
+              #businessage="ngModel"
+              [(ngModel)]="consumer.businessage"
+              matInput
+              placeholder="Business Age"
+              required
+            />
+            <mat-hint
+              class="text-danger"
+              *ngIf="businessage.invalid && businessage.touched"
+            >
+              Please enter valid input</mat-hint
+            >
+          </mat-form-field>
+        </span>
+
+        <div class="create-button">
+          <button type="submit" mat-raised-button color="primary">
+            Submit
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <div class="col-md"></div>
+</div>
